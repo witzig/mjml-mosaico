@@ -1,0 +1,92 @@
+id { widget: id }
+size { label: Size; widget: select; options: 8|9|10|11|12|13|14|15|16|18|20|22|25|28|31; }
+visible { label: Visible?; widget: boolean }
+color { label: Color; widget: color }
+radius {
+  label: Corner Radius;
+  widget: integer;
+  max: 20;
+  help: Attention - this property is not supported on all email clients (i.e. Outlook)
+}
+face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
+decoration { label: Decoration; widget: select; options: none=None|underline=Underline }
+linksColor { label: Link Color; extend: color }
+linksDecoration { label: Underlined Links?; extend: decoration }
+buttonColor { label: Button Color; extend: color }
+text { label: Paragraph; widget: text }
+url { label: Link; widget: url }
+src { label: Image; widget: src }
+hrWidth { label: Width; widget: select; options:10|20|30|40|50|60|70|80|90|100; }
+hrHeight { label: Line height; widget: integer; max: 80; }
+
+height { label: Height; widget: integer }
+imageHeight { label: Image Height; extend: height; }
+spacerSize { label: Height; widget: integer; max: 90; min: 4; }
+align { label: Alignment; widget: select; options:left=Left|right=Right|center=Center}
+alt {
+  label: Alternative Text;
+  widget: text;
+  help: Alternative text will be shown on email clients that does not download image automatically;
+}
+sponsor { label: Sponsor; properties: visible=true src url alt; category: hidden }
+titleText {label:Title Text;category: hidden;}
+gutterVisible { label: Show Gutter; extend: visible }
+socialIconType { label: Icon Version;widget: select; options:bw=Black and White|colors=Colors; }
+
+preheaderLinkOption {
+  label: Unsubscribe Link;
+  widget: select;
+  options: [profile_link]=Profile|[unsubscribe_link]=Unsubscribe|none=None;
+  help: If -None- is selected, preHeader text will be shown;
+}
+
+hrStyle { label: Separator Style;properties:color hrWidth hrHeight; }
+hrStyle:preview { height: 200%; width: 200%; bottom: 20px; -ko-border-bottom: @[hrHeight]px solid @color; }
+preheaderVisible { label: Show Preheader; extend: visible; help: Preheader block is the first one on the top of the page. It contains web version link and optionally unsubscribe link or a preheader text that will be shown as a preview on some email clients; }
+
+/* content types */
+blocks { label: Blocks; properties: blocks[]; }
+link { label: Link; properties: text url }
+image { label: Image; properties: src url alt }
+backgroundColor { label: Background Color; extend: color }
+buttonLink { label: Button; extend: link }
+
+/* texts and links */
+textStyle { label: Text; properties: face color size }
+textStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+linkStyle { label: Link; properties: face color size decoration=none }
+linkStyle:preview { -ko-bind-text: @['Link']; -ko-font-size: @[size]px; -ko-font-family: @face; -ko-color: @color; -ko-text-decoration: @[decoration] }
+longTextStyle { label: Paragraph; properties: face color size linksColor   }
+longTextStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+bigButtonStyle { label: Big Button; extend: buttonStyle }
+titleTextStyle { label: Title; extend: textStyle }
+
+/* background */
+externalBackgroundColor { label: External Background; extend: color }
+
+externalTextStyle { label: Alternative Text; extend: textStyle }
+externalTextStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+
+bigTitleStyle { label: Title; properties: face color size align}
+bigTitleStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+/* buttons */
+buttonStyle color { label: Text Color; extend: color }
+buttonStyle size { label: Text Size; extend: size }
+buttonStyle { label: Button; properties: face color size buttonColor radius }
+buttonStyle:preview { -ko-bind-text: @['Button']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; -ko-background-color: @buttonColor; padding-left: 5px; -ko-border-radius: @[radius]px; }
+
+/* contents */
+preheaderText {label: PreHeader Text; extend:text; help: This text will be shown on some email clients as a preview of the email contents;}
+
+contentTheme { label: Main Style; }
+contentTheme:preview { -ko-background-color: @[backgroundColor] }
+frameTheme { label: Frame Style; }
+frameTheme:preview { -ko-background-color: @[backgroundColor] }
+
+/*
+template preheaderText { label: Preheader; }
+template { label: Page; theme: frameTheme ;properties:  preheaderVisible=true; version: 1.0.6; }
+*/
+
+footerBlock { label: Unsubscribe Block; theme: frameTheme }
+preheaderBlock { label:Preheader Block;  theme: frameTheme}

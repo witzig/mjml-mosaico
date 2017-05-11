@@ -1,0 +1,10 @@
+{
+    "packages": [
+        "./components/mj-mosaico-image.js",
+        "./components/mj-mosaico-button.js",
+        "./components/mj-mosaico-text.js",
+        "./components/mj-mosaico-block-begin.js",
+        "./components/mj-mosaico-block-end.js",
+        "./components/mj-mosaico-dropzone.js"
+    ]
+}

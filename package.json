@@ -1,0 +1,35 @@
+{
+  "name": "mjml-mosaico",
+  "version": "0.1.0",
+  "description": "MJML Components to generate Mosaico Templates",
+  "scripts": {
+    "start": "gulp watch --tmpl demo",
+    "build": "gulp build --tmpl demo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/witzig/mjml-mosaico.git"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.9",
+    "load-grunt-tasks": "^3.5.2",
+    "phantomjs-prebuilt": "^2.1.14",
+    "yargs": "^8.0.1"
+  },
+  "dependencies": {
+    "camelcase": "^4.1.0",
+    "js-beautify": "^1.6.12",
+    "mjml": "^3.3.2",
+    "mjml-button": "^3.3.2",
+    "mjml-column": "^3.3.2",
+    "mjml-core": "^3.3.2",
+    "mjml-image": "^3.3.2",
+    "mjml-section": "^3.3.2",
+    "mjml-text": "^3.3.2",
+    "mjml-raw": "^3.3.2",
+    "react": "^15.3.1"
+  }
+}
