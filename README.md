@@ -50,16 +50,16 @@ Some basic [MJML](https://github.com/mjmlio/mjml) Components to generate [Mosaic
 ```html
 <mj-column>
     <mj-mosaico-text name="Body Text" visible="true" />
-    <mj-text><p>Lorem Ipsum</p></mj-text>
+    <mj-text>Lorem Ipsum</mj-text>
 </mj-column>
 ```
 
-For single-line text fields with and no WYSIWYG editor omit the `<p>` tag:  
+For single-line text fields with and no WYSIWYG editor add a `<span>` tag:  
 
 ```html
 <mj-column>
     <mj-mosaico-text name="Title Text" visible="true" />
-    <mj-text>Title</mj-text>
+    <mj-text><span>Title</span></mj-text>
 </mj-column>
 ```
 
